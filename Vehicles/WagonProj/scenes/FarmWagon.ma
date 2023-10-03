@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: FarmWagon.ma
-//Last modified: Mon, Oct 02, 2023 05:53:59 PM
+//Last modified: Mon, Oct 02, 2023 06:43:38 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202302170737-4500172811";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23550)";
-fileInfo "UUID" "ADB5E104-4CA0-E407-6827-2BB181EF853B";
+fileInfo "UUID" "2EB734DB-4B0C-45AD-BB68-E0AC26AF5C0B";
 createNode transform -s -n "persp";
 	rename -uid "EDFADC3E-4165-7F60-04B3-56988F1C9C87";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 20.685999207241895 22.024075200161391 50.564527156268603 ;
-	setAttr ".r" -type "double3" 1421.061647281997 -2860.5999999988903 0 ;
+	setAttr ".t" -type "double3" 33.737171012276811 6.9114264281539235 66.817667692416265 ;
+	setAttr ".r" -type "double3" 1433.6616472819708 -2856.1999999988448 2.1726057943120727e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "A031697F-42C8-52F2-AA8F-878EC21B053E";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 60.675058681343501;
+	setAttr ".coi" 78.128459539616927;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
