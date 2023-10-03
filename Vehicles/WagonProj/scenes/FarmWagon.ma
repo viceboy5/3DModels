@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: FarmWagon.ma
-//Last modified: Mon, Oct 02, 2023 07:03:02 PM
+//Last modified: Mon, Oct 02, 2023 07:32:42 PM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -12,7 +12,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202302170737-4500172811";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23550)";
-fileInfo "UUID" "7EA773F7-4826-C11F-B355-C7BE76EF4211";
+fileInfo "UUID" "722DBE0B-4A69-8DFB-E83B-02B526744BF3";
 createNode transform -s -n "persp";
 	rename -uid "EDFADC3E-4165-7F60-04B3-56988F1C9C87";
 	setAttr ".v" no;
@@ -33299,22 +33299,22 @@ createNode mesh -n "Front_Left_WheelShape" -p "Front_Left_Wheel";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "5177C7CA-46D5-3BEE-4852-60AC89AFA9BC";
+	rename -uid "57F72AA6-4980-F940-A679-589E36B11EB7";
 	setAttr -s 36 ".lnk";
 	setAttr -s 36 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "4F09521D-46AD-5E8A-CE1F-AD9169981BAA";
+	rename -uid "34CDF1AD-40DE-44A6-28EC-388BC3A74594";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "5FA0EC05-4429-C593-6AB8-9FADECE44846";
+	rename -uid "2E819C36-4F37-A77A-A650-4E854CEB883B";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "36DFB7FE-4206-2D77-446B-B48E1E516386";
+	rename -uid "8B5423E8-46AC-5A24-92E9-B5AED686147A";
 	setAttr -s 4 ".dli[1:3]"  4 1 2;
 	setAttr -s 4 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "171ABFA4-47EF-5870-2798-9C8F7A3276E4";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "D7C39C65-4F6A-E4F3-AA5E-0BBAFE0DC05C";
+	rename -uid "D949F787-405E-53C1-0440-44B58A93D399";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "D63E49C1-4E8D-0B58-4F4A-A882F731C72D";
 	setAttr ".g" yes;
@@ -34883,7 +34883,7 @@ createNode materialInfo -n "materialInfo7";
 createNode bump2d -n "bump2d1";
 	rename -uid "0F142A3B-43B7-DC93-51D1-52BA8E417263";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 3.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 1.9999999e-05 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode place2dTexture -n "place2dTexture2";
 	rename -uid "439C9234-46E7-527B-6961-DDBF0947D6FB";
@@ -34929,7 +34929,7 @@ createNode materialInfo -n "materialInfo8";
 createNode bump2d -n "bump2d2";
 	rename -uid "C5AF04D1-46BD-080B-0C5E-F8BD8289A631";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 4.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 9.9999997e-06 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode place2dTexture -n "place2dTexture3";
 	rename -uid "0C525EA0-48F9-7178-F433-1FA0D7ABA527";
@@ -34979,7 +34979,7 @@ createNode materialInfo -n "materialInfo9";
 createNode bump2d -n "bump2d3";
 	rename -uid "599568C2-46C8-6D06-CE29-37A93A43239B";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 3.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 1.9999999e-05 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode place2dTexture -n "place2dTexture4";
 	rename -uid "7AC6AC29-4705-8C3C-95E4-2E9BD6F99EDF";
@@ -35029,34 +35029,34 @@ createNode materialInfo -n "materialInfo10";
 createNode bump2d -n "bump2d4";
 	rename -uid "8CE9E29F-475B-4AB0-F1A3-488BD58BAC31";
 	setAttr ".bi" 1;
-	setAttr ".vc1" -type "float3" 0 3.9999999e-05 0 ;
+	setAttr ".vc1" -type "float3" 0 1.9999999e-05 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode place2dTexture -n "place2dTexture5";
 	rename -uid "63EDE88C-4215-95FD-1394-FFB457215A22";
 createNode file -n "file21";
 	rename -uid "476932C9-4ABD-B33D-FE0F-B29DA0A73080";
-	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelsMetal/Wagon_WheelSpokesWood_BaseColor.1001.png";
+	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelSpokes/Wagon_WheelSpokesWood_BaseColor.1001.png";
 	setAttr ".cs" -type "string" "sRGB";
 createNode file -n "file22";
 	rename -uid "6086EE31-4027-CEB7-A0BE-53A1E1B66673";
 	setAttr ".ail" yes;
 	setAttr ".ao" -0.5;
-	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelsMetal/Wagon_WheelSpokesWood_Height.1001.png";
+	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelSpokes/Wagon_WheelSpokesWood_Height.1001.png";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file23";
 	rename -uid "34CF197F-40C9-5056-5863-29AE132BC46C";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelsMetal/Wagon_WheelSpokesWood_Metalness.1001.png";
+	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelSpokes/Wagon_WheelSpokesWood_Metalness.1001.png";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file24";
 	rename -uid "2ABCDFB2-4235-F66D-1AA1-E39513C908BD";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelsMetal/Wagon_WheelSpokesWood_Normal.1001.png";
+	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelSpokes/Wagon_WheelSpokesWood_Normal.1001.png";
 	setAttr ".cs" -type "string" "Raw";
 createNode file -n "file25";
 	rename -uid "8528E8CF-4608-BB39-544D-A0B135C404AA";
 	setAttr ".ail" yes;
-	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelsMetal/Wagon_WheelSpokesWood_Roughness.1001.png";
+	setAttr ".ftn" -type "string" "D:/GitRepos/3DModels/Vehicles/WagonProj//sourceimages/WheelSpokes/Wagon_WheelSpokesWood_Roughness.1001.png";
 	setAttr ".cs" -type "string" "Raw";
 createNode multiplyDivide -n "multiplyDivide5";
 	rename -uid "DADB3AC2-4E47-CE70-0B02-28BD8A2C2BE5";
@@ -35164,68 +35164,38 @@ createNode bump2d -n "bump2d7";
 	setAttr ".vc1" -type "float3" 0 9.9999997e-06 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "255BA110-4F7C-346D-9CC1-24A598F7F162";
+	rename -uid "D5264E65-4D9F-49E2-120A-C9AB997BDCEC";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -899.47968253576641 -576.54949204984393 ;
-	setAttr ".tgi[0].vh" -type "double2" 993.81094130015776 649.17538782826171 ;
-	setAttr -s 19 ".tgi[0].ni";
-	setAttr ".tgi[0].ni[0].x" 735.71429443359375;
-	setAttr ".tgi[0].ni[0].y" 375.71429443359375;
+	setAttr ".tgi[0].vl" -type "double2" -881.43739793037696 -564.12477377519849 ;
+	setAttr ".tgi[0].vh" -type "double2" 985.95677253746919 644.83462551887237 ;
+	setAttr -s 9 ".tgi[0].ni";
+	setAttr ".tgi[0].ni[0].x" -767.14288330078125;
+	setAttr ".tgi[0].ni[0].y" 94.285713195800781;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 387.14285278320312;
-	setAttr ".tgi[0].ni[1].y" 265.71429443359375;
-	setAttr ".tgi[0].ni[1].nvs" 2387;
-	setAttr ".tgi[0].ni[2].x" -68.571426391601562;
-	setAttr ".tgi[0].ni[2].y" -64.285713195800781;
+	setAttr ".tgi[0].ni[1].x" -68.571426391601562;
+	setAttr ".tgi[0].ni[1].y" 51.428569793701172;
+	setAttr ".tgi[0].ni[1].nvs" 1923;
+	setAttr ".tgi[0].ni[2].x" -458.1710205078125;
+	setAttr ".tgi[0].ni[2].y" 378.57144165039062;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
 	setAttr ".tgi[0].ni[3].x" -68.571426391601562;
-	setAttr ".tgi[0].ni[3].y" 462.85714721679688;
+	setAttr ".tgi[0].ni[3].y" 380;
 	setAttr ".tgi[0].ni[3].nvs" 1923;
-	setAttr ".tgi[0].ni[4].x" -74.285713195800781;
-	setAttr ".tgi[0].ni[4].y" 378.57144165039062;
+	setAttr ".tgi[0].ni[4].x" -460;
+	setAttr ".tgi[0].ni[4].y" 202.85714721679688;
 	setAttr ".tgi[0].ni[4].nvs" 1923;
-	setAttr ".tgi[0].ni[5].x" -74.285713195800781;
-	setAttr ".tgi[0].ni[5].y" 50;
-	setAttr ".tgi[0].ni[5].nvs" 1923;
+	setAttr ".tgi[0].ni[5].x" 328.57144165039062;
+	setAttr ".tgi[0].ni[5].y" 347.14285278320312;
+	setAttr ".tgi[0].ni[5].nvs" 2387;
 	setAttr ".tgi[0].ni[6].x" -68.571426391601562;
-	setAttr ".tgi[0].ni[6].y" 287.14285278320312;
+	setAttr ".tgi[0].ni[6].y" -124.28571319580078;
 	setAttr ".tgi[0].ni[6].nvs" 1923;
-	setAttr ".tgi[0].ni[7].x" -517.14288330078125;
-	setAttr ".tgi[0].ni[7].y" 30;
+	setAttr ".tgi[0].ni[7].x" 677.14288330078125;
+	setAttr ".tgi[0].ni[7].y" 347.14285278320312;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
-	setAttr ".tgi[0].ni[8].x" -517.14288330078125;
-	setAttr ".tgi[0].ni[8].y" 320;
+	setAttr ".tgi[0].ni[8].x" -68.571426391601562;
+	setAttr ".tgi[0].ni[8].y" 227.14285278320312;
 	setAttr ".tgi[0].ni[8].nvs" 1923;
-	setAttr ".tgi[0].ni[9].x" -68.571426391601562;
-	setAttr ".tgi[0].ni[9].y" 111.42857360839844;
-	setAttr ".tgi[0].ni[9].nvs" 1923;
-	setAttr ".tgi[0].ni[10].x" -478.57144165039062;
-	setAttr ".tgi[0].ni[10].y" 131.42857360839844;
-	setAttr ".tgi[0].ni[10].nvs" 1923;
-	setAttr ".tgi[0].ni[11].x" -68.571426391601562;
-	setAttr ".tgi[0].ni[11].y" -217.14285278320312;
-	setAttr ".tgi[0].ni[11].nvs" 1923;
-	setAttr ".tgi[0].ni[12].x" -478.57144165039062;
-	setAttr ".tgi[0].ni[12].y" 307.14285278320312;
-	setAttr ".tgi[0].ni[12].nvs" 1923;
-	setAttr ".tgi[0].ni[13].x" 684.28570556640625;
-	setAttr ".tgi[0].ni[13].y" 340;
-	setAttr ".tgi[0].ni[13].nvs" 1923;
-	setAttr ".tgi[0].ni[14].x" -824.28570556640625;
-	setAttr ".tgi[0].ni[14].y" 118.57142639160156;
-	setAttr ".tgi[0].ni[14].nvs" 1923;
-	setAttr ".tgi[0].ni[15].x" -785.71429443359375;
-	setAttr ".tgi[0].ni[15].y" 168.57142639160156;
-	setAttr ".tgi[0].ni[15].nvs" 1923;
-	setAttr ".tgi[0].ni[16].x" -74.285713195800781;
-	setAttr ".tgi[0].ni[16].y" -125.71428680419922;
-	setAttr ".tgi[0].ni[16].nvs" 1923;
-	setAttr ".tgi[0].ni[17].x" -74.285713195800781;
-	setAttr ".tgi[0].ni[17].y" 202.85714721679688;
-	setAttr ".tgi[0].ni[17].nvs" 1923;
-	setAttr ".tgi[0].ni[18].x" 335.71429443359375;
-	setAttr ".tgi[0].ni[18].y" 340;
-	setAttr ".tgi[0].ni[18].nvs" 2387;
 select -ne :time1;
 	setAttr ".o" 0;
 select -ne :hardwareRenderingGlobals;
@@ -35274,6 +35244,8 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
 connectAttr "polyTweakUV20.out" "CabShape.i";
 connectAttr "groupId263.id" "CabShape.iog.og[0].gid";
 connectAttr "set2.mwc" "CabShape.iog.og[0].gco";
@@ -38417,43 +38389,23 @@ connectAttr "set7.msg" "materialInfo13.sg";
 connectAttr "WheelSpokesShader.msg" "materialInfo13.m";
 connectAttr "WheelSpokesShader.msg" "materialInfo13.t" -na;
 connectAttr "file34.oa" "bump2d7.bv";
-connectAttr "set7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr "place2dTexture3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "WheelSpokesShader.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "file13.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
-connectAttr "bump2d7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr "file14.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "file32.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "bump2d3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
-connectAttr "file28.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
+connectAttr "file11.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
-connectAttr "multiplyDivide6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
+connectAttr "RustyMetalShader.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "multiplyDivide7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "file15.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
-connectAttr "file34.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
+connectAttr "set3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
-connectAttr "file31.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
-		;
-connectAttr "file33.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[9].dn"
-		;
-connectAttr "file26.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[10].dn"
-		;
-connectAttr "file35.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[11].dn"
-		;
-connectAttr "file29.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[12].dn"
-		;
-connectAttr "set6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[13].dn"
-		;
-connectAttr "place2dTexture7.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[14].dn"
-		;
-connectAttr "place2dTexture6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[15].dn"
-		;
-connectAttr "file30.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[16].dn"
-		;
-connectAttr "bump2d6.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[17].dn"
-		;
-connectAttr "WheelsMetalShader.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[18].dn"
+connectAttr "multiplyDivide3.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[8].dn"
 		;
 connectAttr "Walker:set17.pa" ":renderPartition.st" -na;
 connectAttr "Walker:set18.pa" ":renderPartition.st" -na;
@@ -38809,4 +38761,5 @@ connectAttr "file32.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file33.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file34.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file35.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Walker:multiplyDivide35.o" ":internal_standInShader.ic";
 // End of FarmWagon.ma
