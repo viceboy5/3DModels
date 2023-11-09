@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: RoundingHammer.ma
-//Last modified: Wed, Nov 08, 2023 08:37:26 PM
+//Last modified: Wed, Nov 08, 2023 08:37:50 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202302170737-4500172811";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23580)";
-fileInfo "UUID" "4C45C3C6-496C-38AF-8325-0B8729AE4954";
+fileInfo "UUID" "2355B295-4953-E837-7F34-1F9A0A00E2E0";
 createNode transform -s -n "persp";
 	rename -uid "070EFF2A-45D9-A8F5-12CF-9B82FF4782CB";
 	setAttr ".v" no;
@@ -5305,7 +5305,6 @@ createNode aiStandardSurface -n "RoundedHammerShader";
 createNode shadingEngine -n "set1";
 	rename -uid "0D4A03C6-4533-BB59-457E-5BBB27092156";
 	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "108B9476-48FD-278B-5B08-758111E60D3C";
@@ -5315,7 +5314,7 @@ createNode bump2d -n "bump2d1";
 	setAttr ".vc1" -type "float3" 0 2.9999999e-05 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "1694B0D8-4EED-1BAF-6DD5-1EBEED98AC1F";
+	rename -uid "62E893B6-40DF-6F2C-67F6-FBA98910F8ED";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -611.90473758985229 -304.76189265175526 ;
 	setAttr ".tgi[0].vh" -type "double2" 603.57140458765582 391.66665110323225 ;
