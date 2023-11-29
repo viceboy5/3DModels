@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: WalkerPoseScene.ma
-//Last modified: Mon, Nov 27, 2023 09:54:50 PM
+//Last modified: Wed, Nov 29, 2023 02:21:22 PM
 //Codeset: 1252
 file -rdi 1 -ns "Walker" -rfn "WalkerRN" -op "v=0;" -typ "mayaAscii" "D:/GitRepos/3DCharacters/Walker/Maya/scenes/Walker.ma";
 file -r -ns "Walker" -dr 1 -rfn "WalkerRN" -op "v=0;" -typ "mayaAscii" "D:/GitRepos/3DCharacters/Walker/Maya/scenes/Walker.ma";
@@ -8,24 +8,25 @@ requires maya "2024";
 requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
 		 -nodeType "aiStandardSurface" "mtoa" "5.3.0";
+requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202302170737-4500172811";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 23590)";
-fileInfo "UUID" "1B7CA027-403A-1073-26A7-4AB02179D7FE";
+fileInfo "UUID" "6B97F2A9-43BE-6FD4-83E6-DF9CD153C9E5";
 createNode transform -s -n "persp";
 	rename -uid "CD80ED4C-44D8-C380-36BD-839161A889BC";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 18.080895248086229 20.181354788715026 60.66486778320435 ;
-	setAttr ".r" -type "double3" 346.46164726989764 17.399999999999476 -8.3326877580432717e-16 ;
+	setAttr ".t" -type "double3" 4.9443349304853808 19.351356395437023 24.129424253393697 ;
+	setAttr ".r" -type "double3" 340.46164726666996 -706.60000000004425 4.0869571716218782e-16 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "F78CB1F4-4B6B-E724-45A1-04818BBF57F6";
 	setAttr -k off ".v" no;
 	setAttr ".rnd" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 63.702404387670711;
+	setAttr ".coi" 29.897896925989173;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -83,14 +84,13 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "aiSkyDomeLight1";
 	rename -uid "B75749BB-4E16-F67D-39A9-01BA0F78CA8C";
-	setAttr ".v" no;
 createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
 	rename -uid "66B8D9FB-40B2-0E00-5350-F7849A964CB0";
 	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
 	setAttr -k off ".v";
 	setAttr ".csh" no;
 	setAttr ".rcsh" no;
-	setAttr ".intensity" 0.30000001192092896;
+	setAttr ".intensity" 0.69999998807907104;
 	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode transform -n "LightsCameraGroup";
 	rename -uid "B146A4F0-4273-8FA0-8B51-5A98832F63F4";
@@ -1356,6 +1356,7 @@ createNode transform -n "BallsGroup" -p "LightsCameraGroup";
 	rename -uid "31A0C54F-4115-8A6D-67A5-6FA60EC0CF6E";
 createNode transform -n "MetalBall" -p "BallsGroup";
 	rename -uid "608CB8F6-4B56-FC95-0E06-7E95AB03466A";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.2055583793962152 0.20964391027256712 -1.7763568394002505e-15 ;
 	setAttr ".s" -type "double3" 0.14390227391126889 0.14390227391126889 0.14390227391126889 ;
 createNode mesh -n "MetalBallShape" -p "MetalBall";
@@ -2490,6 +2491,7 @@ createNode mesh -n "MetalBallShape" -p "MetalBall";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "GreyBall" -p "BallsGroup";
 	rename -uid "BA42A070-424C-3641-344D-7F8D94A2996E";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.2055583793962152 0.54300116019569744 -1.7763568394002505e-15 ;
 	setAttr ".s" -type "double3" 0.14390227391126889 0.14390227391126889 0.14390227391126889 ;
 createNode mesh -n "GreyBallShape" -p "GreyBall";
@@ -3624,6 +3626,7 @@ createNode mesh -n "GreyBallShape" -p "GreyBall";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "WhiteBall" -p "BallsGroup";
 	rename -uid "57BE21BF-4762-5A60-C358-56A2210FA197";
+	setAttr ".v" no;
 	setAttr ".t" -type "double3" 1.2055583793962152 0.89479332213799001 -1.7763568394002505e-15 ;
 	setAttr ".s" -type "double3" 0.14390227391126889 0.14390227391126889 0.14390227391126889 ;
 createNode mesh -n "WhiteBallShape" -p "WhiteBall";
@@ -4776,42 +4779,72 @@ createNode camera -n "cameraShape1" -p "camera1";
 	setAttr ".dr" yes;
 createNode transform -n "spotLight1";
 	rename -uid "66805C9A-48C0-BA47-DC29-4FB339563ED3";
-	setAttr ".t" -type "double3" 9.3015012017515186 29.945951832133773 0.64588296056670524 ;
-	setAttr ".r" -type "double3" -77.823905658210066 3.124040092657296 -18.256036308716521 ;
+	setAttr ".t" -type "double3" 9.4657517190020783 32.235038503268655 12.989415041117228 ;
+	setAttr ".r" -type "double3" -61.878891149156793 6.2404885468066524 -27.617406305513011 ;
 createNode spotLight -n "spotLightShape1" -p "spotLight1";
 	rename -uid "1D567A03-4290-A1B4-503A-D2811FC942AD";
 	setAttr -k off ".v";
-	setAttr ".in" 2;
-	setAttr ".pa" -7.5641025557445412;
-	setAttr ".dro" 14.711538562013839;
-	setAttr ".ai_exposure" 15;
+	setAttr ".in" 12;
+	setAttr ".ca" 80.769818448338384;
+	setAttr ".pa" 10;
+	setAttr ".dro" 8.1730769261216309;
+	setAttr ".ai_exposure" 10;
 	setAttr ".ai_use_color_temperature" yes;
-	setAttr ".ai_color_temperature" 4739.13037109375;
+	setAttr ".ai_color_temperature" 10739.130859375;
+createNode transform -n "pointLight1";
+	rename -uid "598B0B7B-478C-12D8-FC00-FCB612270B70";
+	setAttr ".t" -type "double3" -4.9490485132221265 9.5791215669798238 -3.5458228817198418 ;
+createNode pointLight -n "pointLightShape1" -p "pointLight1";
+	rename -uid "8634F1E2-44A1-9F16-DA86-1E850A926D05";
+	setAttr -k off ".v";
+	setAttr ".in" 4;
+	setAttr ".us" no;
+	setAttr ".ai_cast_shadows" no;
+	setAttr ".ai_exposure" 4;
+createNode transform -n "pointLight2";
+	rename -uid "3BC07E5B-434C-06E7-D262-779B9C0E14A3";
+	setAttr ".t" -type "double3" -4.9490485132221265 13.357631332097521 1.3088801447844047 ;
+createNode pointLight -n "pointLightShape2" -p "pointLight2";
+	rename -uid "2CB659C0-4DD0-1566-7C5A-39B9EBA743A6";
+	setAttr -k off ".v";
+	setAttr ".in" 4;
+	setAttr ".us" no;
+	setAttr ".ai_cast_shadows" no;
+	setAttr ".ai_exposure" 4;
+createNode transform -n "pointLight3";
+	rename -uid "45DC3931-42D9-B2D2-1BD0-AC8F3BFBC9BF";
+	setAttr ".t" -type "double3" 4.8917812103306995 5.2375995589342779 4.789944319764734 ;
+createNode pointLight -n "pointLightShape3" -p "pointLight3";
+	rename -uid "8E2CD809-496D-8E3E-BEAF-309FDA952E65";
+	setAttr -k off ".v";
+	setAttr ".in" 4;
+	setAttr ".us" no;
+	setAttr ".ai_cast_shadows" no;
+	setAttr ".ai_exposure" 4;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "20953A13-427A-9EB1-0024-BCA4D78D117D";
+	rename -uid "145B2021-4400-6BC1-E61E-3F8D61202AAA";
 	setAttr -s 35 ".lnk";
 	setAttr -s 35 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "19065E26-4F5F-6EE2-0C10-9CB3C8D1CB59";
+	rename -uid "754E325C-4C10-E08C-C67A-3CBB436AE1F8";
 	setAttr ".bsdt[0].bscd" -type "Int32Array" 1 0 ;
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "6A08C0BA-4E6A-AA6E-B0B3-27952795E02B";
+	rename -uid "C654F6A4-40D7-9C0A-1381-348504318A20";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "F0C29351-4DBF-A9E7-E25B-85ADD295F4C3";
+	rename -uid "027738AC-46B0-9A8B-4482-DE8ACA993288";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "C7EC5F03-491E-83A0-D6B1-85AA9CFE489F";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "7ED91645-4D3C-3F1C-E582-0A8060CCF988";
+	rename -uid "545BA8D4-45CF-2241-21F2-D5A3FD04A512";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "6E2439FB-4C1E-0161-7175-C898ED57A74E";
 	setAttr ".g" yes;
 createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "F99E197C-4E33-4C2D-29CB-5780B0CCE538";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
-	setAttr ".AA_samples" 1;
 	setAttr ".version" -type "string" "5.3.0";
-	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1  1;Background.Offset=0  0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1  1;Foreground.Offset=0  0;Foreground.Apply Color Management=1;";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=cameraShape1;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1   1;Background.Offset=0   0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1   1;Foreground.Offset=0   0;Foreground.Apply Color Management=1;";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "D22D4F25-4FB9-FD14-4746-0E8FF5CFF630";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -4859,14 +4892,14 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|LightsCameraGroup|CameraGroup|camera1\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n"
 		+ "            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n"
-		+ "            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1337\n            -height 1003\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
+		+ "            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n"
 		+ "            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|side\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n"
 		+ "            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n"
 		+ "            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n"
-		+ "            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1337\n            -height 2\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n"
+		+ "            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n"
 		+ "            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n"
 		+ "            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n"
-		+ "            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1337\n            -height 2\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"|persp\" \n            -useInteractiveMode 0\n            -displayLights \"all\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 0\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
 		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -bluePencil 1\n            -greasePencils 0\n            -excludeObjectPreset \"All\" \n            -shadows 0\n            -captureSequenceNumber -1\n            -width 2681\n            -height 1050\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n"
@@ -4926,24 +4959,42 @@ createNode reference -n "WalkerRN";
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"WalkerRN"
 		"WalkerRN" 0
-		"WalkerRN" 125
+		"WalkerRN" 226
 		1 |Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl|Walker:Sword_Handle_Ctrl_parentConstraint1 
 		"R_Arm_IK_CtrlW1" "w1" " -dcb 0 -ci 1 -k 1 -dv 1 -min 0 -at \"double\""
 		2 "|Walker:Walker" "scale" " -type \"double3\" 1 1 1"
 		2 "|Walker:Walker|Walker:Controls|Walker:Transform_Ctrl_Grp|Walker:Transform_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Transform_Ctrl_Grp|Walker:Transform_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Transform_Ctrl_Grp|Walker:Transform_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Transform_Ctrl_Grp|Walker:Transform_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Transform_Ctrl_Grp|Walker:Transform_Ctrl" 
 		"rotate" " -type \"double3\" 0 38.48703686245749367 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:COG_Ctrl_Grp|Walker:COG_Ctrl" "translate" 
-		" -type \"double3\" 0 -1.07635620621336159 0"
+		" -type \"double3\" 0 -1.19039773841052643 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:COG_Ctrl_Grp|Walker:COG_Ctrl" "translateX" 
+		" -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:COG_Ctrl_Grp|Walker:COG_Ctrl" "translateY" 
+		" -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:COG_Ctrl_Grp|Walker:COG_Ctrl" "translateZ" 
+		" -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:COG_Ctrl_Grp|Walker:COG_Ctrl" "rotate" 
-		" -type \"double3\" 0 27.92917637588818991 0"
+		" -type \"double3\" 0 27.92917637588819346 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Neck_01_Fk_Ctrl_Grp|Walker:Neck_01_Fk_Ctrl" 
 		"rotate" " -type \"double3\" -14.70216416955393868 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Neck_02_Fk_Ctrl_Grp|Walker:Neck_02_Fk_Ctrl" 
 		"rotate" " -type \"double3\" -14.70216416955393868 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Head_Fk_Ctrl_Grp|Walker:Head_Fk_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Head_Fk_Ctrl_Grp|Walker:Head_Fk_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Head_Fk_Ctrl_Grp|Walker:Head_Fk_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Head_Fk_Ctrl_Grp|Walker:Head_Fk_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Neck_Ctrl_Grp|Walker:Head_Fk_Ctrl_Grp|Walker:Head_Fk_Ctrl" 
 		"rotate" " -type \"double3\" -14.70216416955393868 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_01_FK_Ctrl_Grp|Walker:Spine_01_FK_Ctrl" 
@@ -4959,6 +5010,12 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_03_FK_Ctrl_Grp|Walker:Spine_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_03_FK_Ctrl_Grp|Walker:Spine_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_03_FK_Ctrl_Grp|Walker:Spine_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_03_FK_Ctrl_Grp|Walker:Spine_03_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_03_FK_Ctrl_Grp|Walker:Spine_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Spine_Ctrl_Grp|Walker:Spine_02_FK_Ctrl_Grp|Walker:Spine_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
@@ -4973,59 +5030,143 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl_Grp|Walker:L_Thumb_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 22.9845973020594343 -10.25564840913296294 31.62069852023104488"
 		
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 63.26288335879407043"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pointer_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 56.94875359783704027"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 59.54144168904009859"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 46.58845635034442267"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:L_Middle_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 30.36935717003520807"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl" 
-		"rotate" " -type \"double3\" 0 0 55.56093394380821593"
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_01_FK_Ctrl" 
+		"rotate" " -type \"double3\" 0 0 55.56093394380822303"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 26.13068833654961054"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:L_Ring_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 38.78379077883398907"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 7.19835830696572643 4.34473813568211398 21.86679546328769419"
 		
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 36.05568790802152535"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Hand_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:L_Pinky_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 47.36911274469468225"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Thumb_Knuckle_02_FK_Ctrl_Grp|Walker:R_Thumb_Knuckle_02_FK_Ctrl" 
@@ -5051,6 +5192,12 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 38.16344993952142772"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pointer_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pointer_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
@@ -5075,19 +5222,43 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 54.9815432540763922"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 44.71035848642993216"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl_Grp|Walker:R_Middle_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 25.52451294032172413"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_01_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_01_FK_Ctrl" 
-		"rotate" " -type \"double3\" 0 0 40.64972696140402775"
+		"rotate" " -type \"double3\" 0 0 40.64972696140403485"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 47.55572036513049028"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Ring_Knuckle_03_FK_Ctrl_Grp|Walker:R_Ring_Knuckle_03_FK_Ctrl" 
@@ -5103,13 +5274,31 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_01_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 14.33616556309985057"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_02_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 42.35942969482324116"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl" 
 		"translate" " -type \"double3\" 0 0 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Hand_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl_Grp|Walker:R_Pinky_Knuckle_03_FK_Ctrl" 
 		"rotate" " -type \"double3\" 0 0 48.93820160630560423"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Arm_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Main_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl" 
@@ -5121,21 +5310,59 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Arm_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Main_Grp|Walker:L_Arm_PV_Ctrl_Grp|Walker:L_Arm_PV_Ctrl_Offset_Grp|Walker:L_Arm_PV_Ctrl" 
 		"translate" " -type \"double3\" 2.16920603949914037 2.41570271243047596 -0.69941035102454285"
 		
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Arm_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Main_Grp|Walker:L_Arm_PV_Ctrl_Grp|Walker:L_Arm_PV_Ctrl_Offset_Grp|Walker:L_Arm_PV_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Arm_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Main_Grp|Walker:L_Arm_PV_Ctrl_Grp|Walker:L_Arm_PV_Ctrl_Offset_Grp|Walker:L_Arm_PV_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:L_Arm_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Grp|Walker:L_Arm_IK_Ctrl_Main_Grp|Walker:L_Arm_PV_Ctrl_Grp|Walker:L_Arm_PV_Ctrl_Offset_Grp|Walker:L_Arm_PV_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_PV_Ctrl_Grp|Walker:R_Arm_PV_Ctrl_Offset_Grp|Walker:R_Arm_PV_Ctrl" 
 		"translate" " -type \"double3\" 1.68644990297498065 -2.04065765560128742 -3.72166341894838837"
 		
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_PV_Ctrl_Grp|Walker:R_Arm_PV_Ctrl_Offset_Grp|Walker:R_Arm_PV_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_PV_Ctrl_Grp|Walker:R_Arm_PV_Ctrl_Offset_Grp|Walker:R_Arm_PV_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_PV_Ctrl_Grp|Walker:R_Arm_PV_Ctrl_Offset_Grp|Walker:R_Arm_PV_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl" 
 		"translate" " -type \"double3\" 4.39593087118289017 2.35499562607900081 2.29849996955568869"
 		
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Arms_Ctrl_Grp|Walker:R_Arm_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl_Main_Grp|Walker:R_Arm_IK_Ctrl_Grp|Walker:R_Arm_IK_Ctrl" 
 		"rotate" " -type \"double3\" -44.67539343086190229 154.90619315230171082 85.79861739517454566"
 		
 		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:L_Leg_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Main_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl" 
 		"translate" " -type \"double3\" 0.80471817642205679 0 1.68746848616516942"
 		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:L_Leg_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Main_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl" 
-		"rotate" " -type \"double3\" 0 -11.84345087530875773 0"
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:L_Leg_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Main_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:L_Leg_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Main_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl" 
+		"translateZ" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:L_Leg_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl_Main_Grp|Walker:L_Leg_IK_Ctrl_Grp|Walker:L_Leg_IK_Ctrl" 
+		"rotate" " -type \"double3\" 0 -11.84345087530875951 0"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_PV_Ctrl_Grp|Walker:R_Leg_PV_Ctrl_Offset_Grp|Walker:R_Leg_PV_Ctrl" 
+		"translate" " -type \"double3\" 0 0 0.15847589509497872"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_PV_Ctrl_Grp|Walker:R_Leg_PV_Ctrl_Offset_Grp|Walker:R_Leg_PV_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_PV_Ctrl_Grp|Walker:R_Leg_PV_Ctrl_Offset_Grp|Walker:R_Leg_PV_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_PV_Ctrl_Grp|Walker:R_Leg_PV_Ctrl_Offset_Grp|Walker:R_Leg_PV_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl" 
 		"translate" " -type \"double3\" -0.047570320891613678 0 -0.96186560440201063"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl" 
+		"translateX" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl" 
+		"translateY" " -av"
+		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl" 
+		"translateZ" " -av"
 		2 "|Walker:Walker|Walker:Controls|Walker:Legs_Ctrl_Grp|Walker:R_Leg_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl_Main_Grp|Walker:R_Leg_IK_Ctrl_Grp|Walker:R_Leg_IK_Ctrl" 
 		"rotate" " -type \"double3\" 0 -26.25846867652922612 0"
 		2 "|Walker:ProxySkin" "visibility" " 0"
@@ -5144,13 +5371,21 @@ createNode reference -n "WalkerRN";
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp" "translate" " -type \"double3\" 4.16036891937255859 4.02012802738821762 3.67420864105224609"
 		
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "translate" 
-		" -type \"double3\" -2.28606302301826059 9.8086112094069815 -1.51660619194725443"
-		
+		" -type \"double3\" -2.27498480530793135 9.6901783635641241 -1.5224275529616218"
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "translateX" 
 		" -av"
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "translateY" 
 		" -av"
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "translateZ" 
+		" -av"
+		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "rotate" 
+		" -type \"double3\" -26.2029820863978955 173.74965378479876676 65.31011004312151158"
+		
+		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "rotateX" 
+		" -av"
+		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "rotateY" 
+		" -av"
+		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl" "rotateZ" 
 		" -av"
 		2 "|Walker:Sword|Walker:Sword_Handle_Ctrl_Grp|Walker:Sword_Handle_Ctrl|Walker:Sword_Handle_Ctrl_parentConstraint1" 
 		"enableRestPosition" " 1"
@@ -5215,7 +5450,7 @@ select -ne :defaultRenderUtilityList1;
 select -ne :defaultRenderingList1;
 	setAttr -s 2 ".r";
 select -ne :lightList1;
-	setAttr -s 3 ".l";
+	setAttr -s 6 ".l";
 select -ne :defaultTextureList1;
 	setAttr -s 120 ".tx";
 select -ne :standardSurface1;
@@ -5234,12 +5469,12 @@ select -ne :defaultRenderGlobals;
 	setAttr ".imfkey" -type "string" "png";
 	setAttr ".dss" -type "string" "standardSurface1";
 select -ne :defaultResolution;
-	setAttr ".w" 1080;
-	setAttr ".h" 1920;
+	setAttr ".w" 2160;
+	setAttr ".h" 3840;
 	setAttr ".pa" 1;
 	setAttr ".dar" 0.5625;
 select -ne :defaultLightSet;
-	setAttr -s 3 ".dsm";
+	setAttr -s 6 ".dsm";
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
@@ -5302,7 +5537,13 @@ connectAttr "GreyBallShader.msg" ":defaultShaderList1.s" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "spotLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "pointLightShape1.ltd" ":lightList1.l" -na;
+connectAttr "pointLightShape2.ltd" ":lightList1.l" -na;
+connectAttr "pointLightShape3.ltd" ":lightList1.l" -na;
 connectAttr "BackGroundPlaneShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "aiSkyDomeLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "spotLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "pointLight1.iog" ":defaultLightSet.dsm" -na;
+connectAttr "pointLight2.iog" ":defaultLightSet.dsm" -na;
+connectAttr "pointLight3.iog" ":defaultLightSet.dsm" -na;
 // End of WalkerPoseScene.ma
