@@ -1,19 +1,19 @@
 //Maya ASCII 2024 scene
 //Name: WorkBench.ma
-//Last modified: Sat, Feb 24, 2024 11:13:35 AM
+//Last modified: Sat, Feb 24, 2024 11:17:57 AM
 //Codeset: 1252
 requires maya "2024";
+requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiStandardSurface"
+		 "mtoa" "5.3.4.1";
 requires -nodeType "mayaUsdLayerManager" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.25.0";
 requires "stereoCamera" "10.0";
-requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
-		 -nodeType "aiStandardSurface" "mtoa" "5.3.4.1";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 26058)";
-fileInfo "UUID" "3F60778C-40C4-33A0-AF07-6DB07175F99F";
+fileInfo "UUID" "249BA7CD-4FE6-FD9D-6012-17854DA27942";
 createNode transform -s -n "persp";
 	rename -uid "8DD4AA15-4B3F-1581-1201-E0B36019D41B";
 	setAttr ".v" no;
@@ -10400,30 +10400,21 @@ createNode mesh -n "WorkBenchShape" -p "WorkBench";
 		1425 
 		1426 
 		1427 ;
-createNode transform -n "aiSkyDomeLight1";
-	rename -uid "4ED56D3C-49BB-7657-3D46-738BB9293097";
-createNode aiSkyDomeLight -n "aiSkyDomeLightShape1" -p "aiSkyDomeLight1";
-	rename -uid "97CDE1F0-4DA5-09C2-23E1-A988D2CD350F";
-	addAttr -ci true -h true -sn "aal" -ln "attributeAliasList" -dt "attributeAlias";
-	setAttr -k off ".v";
-	setAttr ".csh" no;
-	setAttr ".rcsh" no;
-	setAttr ".aal" -type "attributeAlias" {"exposure","aiExposure"} ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "A8EA8689-4A7F-06BE-6E92-13BBBA5D096E";
+	rename -uid "A03C005A-426F-4D0C-0139-288737726159";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "6467F1E6-4E63-9A58-C909-10920E3424CC";
+	rename -uid "3C002157-4960-58C6-A682-3AAA5A463D14";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "6A77486A-4AED-2E3C-5DEC-E18E31F56078";
+	rename -uid "2349FEFE-4275-748B-207B-778B96A03787";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "834B4F60-43B7-535A-6E0B-FA91BA3CF13F";
+	rename -uid "4397494F-4F85-91AA-36C1-3398DB1D44E4";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "42F92881-49EB-BB76-023D-988D8D95F075";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "A2CA81DC-4B51-82FC-F45E-4D9C3061B914";
+	rename -uid "F3A3E9CC-4EB2-4611-5AF0-C28E62F6073B";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "26A7E7AB-4EE8-997D-9377-2FAAAD32C88D";
 	setAttr ".g" yes;
@@ -10431,7 +10422,7 @@ createNode aiOptions -s -n "defaultArnoldRenderOptions";
 	rename -uid "712E3D21-4F68-4FB2-8BEB-C2BE29509A2F";
 	addAttr -ci true -sn "ARV_options" -ln "ARV_options" -dt "string";
 	setAttr ".version" -type "string" "5.3.0";
-	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1 1;Background.Offset=0 0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1 1;Foreground.Offset=0 0;Foreground.Apply Color Management=1;";
+	setAttr ".ARV_options" -type "string" "Test Resolution=100%;Camera=perspShape;Color Management.Gamma=1;Color Management.Exposure=0;Background.BG=BG Color;Background.Color=0 0 0;Background.Image=;Background.Scale=1  1;Background.Offset=0  0;Background.Apply Color Management=1;Foreground.Enable FG=0;Foreground.Image=;Foreground.Scale=1  1;Foreground.Offset=0  0;Foreground.Apply Color Management=1;";
 createNode aiAOVFilter -s -n "defaultArnoldFilter";
 	rename -uid "DD57803C-46E4-D80B-BDF6-55BFA25E30C8";
 	setAttr ".ai_translator" -type "string" "gaussian";
@@ -10539,16 +10530,8 @@ createNode bump2d -n "bump2d1";
 	setAttr ".bi" 1;
 	setAttr ".vc1" -type "float3" 0 9.9999997e-06 0 ;
 	setAttr ".vc2" -type "float3" 9.9999997e-06 9.9999997e-06 0 ;
-createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "FE304C0C-4606-675A-497C-C8A5370AA36F";
-	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -341.66665309005373 ;
-	setAttr ".tgi[0].vh" -type "double2" 708.33330518669663 44.047617297323995 ;
-	setAttr ".tgi[0].ni[0].x" 238.57142639160156;
-	setAttr ".tgi[0].ni[0].y" -77.142860412597656;
-	setAttr ".tgi[0].ni[0].nvs" 1923;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "07AE7B3E-4A09-C54E-FA99-35A5290803B3";
+	rename -uid "D5EA8D2D-4DB8-7A7F-2F52-C9B54AC8E110";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -10570,7 +10553,6 @@ select -ne :postProcessList1;
 select -ne :defaultRenderUtilityList1;
 	setAttr -s 2 ".u";
 select -ne :defaultRenderingList1;
-select -ne :lightList1;
 select -ne :defaultTextureList1;
 	setAttr -s 5 ".tx";
 select -ne :standardSurface1;
@@ -10586,7 +10568,6 @@ select -ne :defaultRenderGlobals;
 	setAttr ".dss" -type "string" "standardSurface1";
 select -ne :defaultResolution;
 	setAttr ".pa" 1;
-select -ne :defaultLightSet;
 select -ne :defaultColorMgtGlobals;
 	setAttr ".cfe" yes;
 	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
@@ -10734,19 +10715,15 @@ connectAttr "aiStandardSurface1.msg" "materialInfo1.m";
 connectAttr "aiStandardSurface1.msg" "materialInfo1.t" -na;
 connectAttr "file2.oa" "displacementShader1.d";
 connectAttr "file4.oa" "bump2d1.bv";
-connectAttr "aiSkyDomeLightShape1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
-		;
 connectAttr "set1.pa" ":renderPartition.st" -na;
 connectAttr "aiStandardSurface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "displacementShader1.msg" ":defaultShaderList1.s" -na;
 connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "bump2d1.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
-connectAttr "aiSkyDomeLightShape1.ltd" ":lightList1.l" -na;
 connectAttr "file1.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file2.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file3.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file4.msg" ":defaultTextureList1.tx" -na;
 connectAttr "file5.msg" ":defaultTextureList1.tx" -na;
-connectAttr "aiSkyDomeLight1.iog" ":defaultLightSet.dsm" -na;
 // End of WorkBench.ma
