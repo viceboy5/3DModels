@@ -1,0 +1,134 @@
+//Maya ASCII 2024 scene
+//Name: 12InRuler.ma
+//Last modified: Mon, Jun 24, 2024 07:36:43 PM
+//Codeset: 1252
+requires maya "2024";
+requires "stereoCamera" "10.0";
+requires "mtoa" "5.3.4.1";
+requires "stereoCamera" "10.0";
+currentUnit -l centimeter -a degree -t film;
+fileInfo "application" "maya";
+fileInfo "product" "Maya 2024";
+fileInfo "version" "2024";
+fileInfo "cutIdentifier" "202310181224-69282f2959";
+fileInfo "osv" "Windows 11 Home v2009 (Build: 26120)";
+fileInfo "UUID" "52F7CF31-4886-54E2-D209-7F943B29A06A";
+createNode transform -n "Ruler";
+	rename -uid "9ACFE9F2-4ED2-043F-7C5F-61B2B4FF2957";
+	setAttr ".t" -type "double3" 0 0 40.207185474673196 ;
+	setAttr ".s" -type "double3" 304.8 304.8 304.8 ;
+createNode mesh -n "RulerShape" -p "Ruler";
+	rename -uid "5AF640CE-45AD-264B-1205-1395FBC12EA4";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.50000001490116119 0.5 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode polyExtrudeFace -n "polyExtrudeFace1";
+	rename -uid "3EC0AB97-413D-3ECC-A766-9388D96E058F";
+	setAttr ".ics" -type "componentList" 1 "f[2:45]";
+	setAttr ".ix" -type "matrix" 304.80000000000001 0 0 0 0 304.80000000000001 0 0 0 0 304.80000000000001 0
+		 0 0 40.207185474673196 1;
+	setAttr ".ws" yes;
+	setAttr ".pvt" -type "float3" 0 0 40.207184 ;
+	setAttr ".rs" 33475;
+	setAttr ".c[0]"  0 1 1;
+	setAttr ".tk" -0.30000001192092896;
+	setAttr ".cbn" -type "double3" -128.26986858844757 -2.6145654961466791 31.502372965851706 ;
+	setAttr ".cbx" -type "double3" 128.26986858844757 2.6145654961466791 48.911995712557719 ;
+createNode polyBevel3 -n "polyBevel1";
+	rename -uid "9F5387DC-45C0-38F5-3798-B7BF8132D8D2";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 33 "e[14]" "e[16]" "e[18:19]" "e[22]" "e[24]" "e[26:27]" "e[30]" "e[32]" "e[34:35]" "e[38]" "e[40]" "e[42:43]" "e[46]" "e[48]" "e[50:51]" "e[54]" "e[56]" "e[58:59]" "e[62]" "e[64]" "e[66:67]" "e[70]" "e[72]" "e[74:75]" "e[78]" "e[80]" "e[82:83]" "e[86]" "e[88]" "e[90:91]" "e[94]" "e[96]" "e[98:99]";
+	setAttr ".ix" -type "matrix" 304.80000000000001 0 0 0 0 304.80000000000001 0 0 0 0 304.80000000000001 0
+		 0 0 40.207185474673196 1;
+	setAttr ".ws" yes;
+	setAttr ".oaf" yes;
+	setAttr ".f" 0.1;
+	setAttr ".at" 180;
+	setAttr ".sn" yes;
+	setAttr ".mv" yes;
+	setAttr ".mvt" 0.0001;
+	setAttr ".sa" 30;
+createNode polySplitRing -n "polySplitRing1";
+	rename -uid "36511B77-4B01-E7DC-5BF2-EAB2F25A2CA6";
+	setAttr ".uopa" yes;
+	setAttr ".ics" -type "componentList" 1 "e[0:3]";
+	setAttr ".ix" -type "matrix" 304.80000000000001 0 0 0 0 304.80000000000001 0 0 0 0 304.80000000000001 0
+		 0 0 0 1;
+	setAttr ".wt" 0.10770636051893234;
+	setAttr ".re" 2;
+	setAttr ".sma" 29.999999999999996;
+	setAttr ".stp" 2;
+	setAttr ".div" 11;
+	setAttr ".p[0]"  0 0 1;
+	setAttr ".fq" yes;
+createNode polyTweak -n "polyTweak1";
+	rename -uid "BABE7399-4AF9-8265-BC0B-EC81F9F03245";
+	setAttr ".uopa" yes;
+	setAttr -s 8 ".tk[0:7]" -type "float3"  0 0.49142203 -0.47144091 0
+		 0.49142203 -0.47144091 0 -0.49142203 -0.47144091 0 -0.49142203 -0.47144091 0 -0.49142203
+		 0.47144091 0 -0.49142203 0.47144091 0 0.49142203 0.47144091 0 0.49142203 0.47144091;
+createNode polyCube -n "polyCube1";
+	rename -uid "ABF188A1-4E79-352F-22B6-E49159B119A9";
+	setAttr ".cuv" 4;
+select -ne :time1;
+	setAttr ".o" 0;
+select -ne :hardwareRenderingGlobals;
+	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
+	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
+		 1 1 1 0 0 0 0 0 0 0 0 0
+		 0 0 0 0 ;
+	setAttr ".fprt" yes;
+	setAttr ".rtfm" 1;
+select -ne :renderPartition;
+	setAttr -s 4 ".st";
+select -ne :renderGlobalsList1;
+select -ne :defaultShaderList1;
+	setAttr -s 7 ".s";
+select -ne :postProcessList1;
+	setAttr -s 2 ".p";
+select -ne :defaultRenderingList1;
+select -ne :standardSurface1;
+	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
+	setAttr ".sr" 0.5;
+select -ne :initialShadingGroup;
+	setAttr -s 4 ".dsm";
+	setAttr ".ro" yes;
+	setAttr -s 5 ".gn";
+select -ne :initialParticleSE;
+	setAttr ".ro" yes;
+select -ne :defaultRenderGlobals;
+	addAttr -ci true -h true -sn "dss" -ln "defaultSurfaceShader" -dt "string";
+	setAttr ".ren" -type "string" "arnold";
+	setAttr ".dss" -type "string" "standardSurface1";
+select -ne :defaultResolution;
+	setAttr ".pa" 1;
+select -ne :defaultColorMgtGlobals;
+	setAttr ".cfe" yes;
+	setAttr ".cfp" -type "string" "<MAYA_RESOURCES>/OCIO-configs/Maya2022-default/config.ocio";
+	setAttr ".vtn" -type "string" "ACES 1.0 SDR-video (sRGB)";
+	setAttr ".vn" -type "string" "ACES 1.0 SDR-video";
+	setAttr ".dn" -type "string" "sRGB";
+	setAttr ".wsn" -type "string" "ACEScg";
+	setAttr ".otn" -type "string" "ACES 1.0 SDR-video (sRGB)";
+	setAttr ".potn" -type "string" "ACES 1.0 SDR-video (sRGB)";
+select -ne :hardwareRenderGlobals;
+	setAttr ".ctrs" 256;
+	setAttr ".btrs" 512;
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
+connectAttr "polyExtrudeFace1.out" "RulerShape.i";
+connectAttr "polyBevel1.out" "polyExtrudeFace1.ip";
+connectAttr "RulerShape.wm" "polyExtrudeFace1.mp";
+connectAttr "polySplitRing1.out" "polyBevel1.ip";
+connectAttr "RulerShape.wm" "polyBevel1.mp";
+connectAttr "polyTweak1.out" "polySplitRing1.ip";
+connectAttr "RulerShape.wm" "polySplitRing1.mp";
+connectAttr "polyCube1.out" "polyTweak1.ip";
+connectAttr "RulerShape.iog" ":initialShadingGroup.dsm" -na;
+// End of 12InRuler.ma
